@@ -1,0 +1,18 @@
+{% extends 'links/base.html' %}
+
+{% block content %}
+    <div class="container mx-auto px-10 py-5">
+        <h2 class="text-xl font-bold mb-4">Links</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {% for link in links %}
+            <div class="bg-white p-5 rounded shadow hover:shadow-lg transition duration-300">
+                <h3 class="text-lg font-semibold mb-2">{{ link.name }}</h3>
+                <a href="{{ link.url }}" class="text-blue-500 hover:underline block mb-2">{{ link.url }}</a>
+                <span class="text-gray-600 mb-2 block">{{ link.clicks }} clicks</span>
+                <!-- Added button below -->
+                <a  href="{% url 'root-link' link.slug %}" target="_blank" class="bg-blue-500 text-white py-1 px-4 rounded hover:bg-blue-600">Open</a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock content %}
