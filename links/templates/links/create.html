@@ -1,26 +1,12 @@
 {% extends 'links/base.html' %}
-
+{% load tailwind_filters %}
 {% block content %}
 
     <div class="container mx-auto px-10 py-5">
         <h2 class="text-xl font-bold mb-4">Add a New Link</h2>
         <form action="" method="post" class="bg-white p-5 rounded shadow">
             {% csrf_token %}
-            <div class="mb-4">
-                <label for="name" class="block text-sm font-medium text-gray-700">Link Name:</label>
-                <input type="text" id="name" name="name" class="mt-1 p-2 w-full border rounded-md" required>
-            </div>
-            
-            <div class="mb-4">
-                <label for="url" class="block text-sm font-medium text-gray-700">URL:</label>
-                <input type="url" id="url" name="url" class="mt-1 p-2 w-full border rounded-md" required>
-            </div>
-
-            <div class="mb-4">
-                <label for="Slug" class="block text-sm font-medium text-gray-700">Slug:</label>
-                <input type="text" id="slug" name="slugs" class="mt-1 p-2 w-full border rounded-md">
-            </div>
-
+            {{ form|crispy }}
             <div class="mt-4">
                 <button type="submit" class="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">Add Link</button>
             </div>
